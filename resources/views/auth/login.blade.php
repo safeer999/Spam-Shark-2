@@ -44,7 +44,7 @@
             max-width: 400px; /* Limit form width */
         }
         .form-label {
-            font-weight: 500;
+            font-weight: 600;
         }
         .btn-custom-login {
             background-color: rgba(0, 164, 128, 1); /* Teal color for login button */
@@ -91,7 +91,7 @@
 <body>
  <div class="left-panel">
     <div class="login-form-container">
-        <h2 class="mb-3">Hello Again!</h2>
+        <h2 style="font-weight: 700" class="mb-3">Hello Again!</h2>
         <p class="mb-4 text-muted">Welcome Back</p>
 
         <form method="POST" action="{{ route('login') }}" class="fs-13px">

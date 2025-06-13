@@ -1,5 +1,8 @@
 <?php
 
+use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
+
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\EmailVerifierController;
@@ -103,3 +106,27 @@ Route::post('/email/paste-verify', [PasteEmailController::class, 'pasteVerify'])
 
 //NEW SPAMSHARK ADMIN DASHBOARD IMPLEMTN IN EXISTING ONE
 Route::get('/spamshark/dashboard', [AdminDashboardController::class, 'spamshark'])->name('spamshark.dashboard');
+
+
+// for veri email and register users
+// ✅ Show verification notice page
+Route::get('/email/verify', function () {
+    return view('auth.verify-email');
+})->middleware('auth')->name('verification.notice');
+
+// ✅ Handle verification link click
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    $request->fulfill();
+    return redirect('/dashboard');
+})->middleware(['auth', 'signed'])->name('verification.verify');
+
+// ✅ Resend verification email
+Route::post('/email/verification-notification', function (Request $request) {
+    $request->user()->sendEmailVerificationNotification();
+    return back()->with('message', 'Verification link sent!');
+})->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+
+// ✅ Protected route (example dashboard)
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');

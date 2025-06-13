@@ -48,7 +48,7 @@
             max-width: 400px;
         }
         .form-label {
-            font-weight: 500;
+            font-weight: 600;
         }
         .btn-custom-signup {
             background-color: #008080;
@@ -100,7 +100,7 @@
 <body>
     <div class="left-panel">
         <div class="register-form-container">
-            <h2 class="mb-2">Hello!</h2>
+            <h2 style="font-weight: 700" class="mb-2">Hello!</h2>
             <p class="mb-4 text-muted">Sign Up to Get Started</p>
 
          <form method="POST" action="{{ route('register') }}">

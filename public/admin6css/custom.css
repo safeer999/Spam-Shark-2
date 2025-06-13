@@ -1,0 +1,43 @@
+/* Keep your existing hover and active styles */
+.custom {
+    color: #00acac !important;
+}
+.panel.panel-inverse .panel-heading {
+    background-color: #00acac !important;
+    color: rgb(255, 255, 255); /* to make text readable */
+    height: 1px;
+} /* Base dropdown animation (hidden state) */
+.dropdown-menu {
+    transition: opacity 0.5s ease, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.dropdown-item {
+    font-size: medium;
+}
+
+
+.btn-primary-custom {
+    background-color: #00acac !important;
+}
+.form-control {
+    font-size: 13px;
+}
+.menu-item {
+    font-size: 15px;
+}.text-muted{
+    font-size: 15px;
+}.text-nowrap{
+     font-size: 15px;
+}.btn-info-custom{
+    background-color: #00acac;
+    color: rgb(255, 255, 255);
+    
+}.panel-heading-custom {
+height: 5px;
+    background-color: #00acac;
+   
+}.btn-info-custom:hover {
+    background-color: #008f8f; /* A slightly darker shade for hover effect */
+    color: #ffffff; /* Keep text white on hover */
+    border-color: #008f8f; /* Match border color to background on hover */
+}
+    

@@ -1,0 +1,573 @@
+ @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+.active-title {
+    font-weight: 700;
+    font-family: "Poppins", sans-serif;
+    size: 24px;
+}
+
+.admin-name {
+    font-weight: 700;
+    font-family: "Poppins";
+    size: 16px;
+}
+
+.metismenu {
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+
+    gap: 10px;
+}
+
+.nav-text {
+    font-weight: 700;
+    font-family: "Poppins";
+    color: rgba(0, 0, 0, 1);
+    font-size: 16px;
+}
+
+.small {
+    font-weight: 400;
+    font-family: "Poppins";
+    color: rgba(0, 0, 0, 1);
+}
+
+.header-right {
+    color: black;
+}
+
+.nav-title {
+    font-weight: 700;
+    font-family: "Poppins";
+    color: rgba(0, 0, 0, 1);
+    font-size: 24px;
+}
+
+.small {
+    font-weight: 700;
+    font-family: "Poppins";
+    color: rgba(0, 0, 0, 1);
+    font-size: 13px;
+}
+
+.fw-bold {
+    font-weight: 700;
+    font-family: "Poppins";
+    color: rgba(0, 0, 0, 1);
+
+}
+
+/* Typography styles for the main headings */
+.text-first {
+    font-weight: 700;
+    font-family: "Poppins", sans-serif; /* Added sans-serif as fallback */
+    color: rgba(0, 164, 128, 1);
+    font-size: 48px; /* Base size */
+}
+
+.text-second {
+    font-weight: 700;
+    font-family: "Poppins", sans-serif; /* Added sans-serif as fallback */
+    color: rgba(0, 0, 0, 1);
+    font-size: 48px; /* Base size */
+}
+
+/* Responsive font sizes for headings */
+@media (max-width: 767.98px) { /* Small devices and below */
+    .text-first, .text-second {
+        font-size: 32px; /* Smaller font size on small screens */
+    }
+}
+
+@media (max-width: 575.98px) { /* Extra small devices */
+    .text-first, .text-second {
+        font-size: 28px; /* Even smaller font size on extra small screens */
+    }
+    .p-tag {
+        text-align: center; /* Center align paragraphs on small screens */
+    }
+}
+
+/* Card Body (main content area containing tabs) */
+.card-body {
+    /* Removed fixed height and width for responsiveness */
+    /* height: 596px; */
+    /* width: 1000px; */
+    background-color: white;
+    padding: 20px; /* Add some default padding */
+    box-sizing: border-box; /* Ensure padding is included in element's total width and height */
+}
+
+/* Tab Buttons Row */
+.card-body .row-button {
+  
+    /* gap: 50px; */ /* Removed fixed gap, use Bootstrap's gx and gy or flex gaps if needed */
+    align-items: center;
+    justify-content: center;
+    color: black;
+    display: flex;
+    padding: 20px 0;
+    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+    row-gap: 15px; /* Add some vertical gap when wrapping */
+    column-gap: 15px; /* Add some horizontal gap between buttons */
+}
+
+.card-body .row-button .btn {
+   
+  
+    color: black;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap; /* Prevent button text from wrapping */
+}
+
+/* Icon display */
+.card-body .row .btn i { /* This rule is problematic as it targets .row within .card-body, not .row-button specifically */
+    color: inherit;
+    font-size: 16px;
+}
+
+/* More specific selector for icons within buttons */
+.card-body .row-button .btn i {
+    color: inherit; /* Ensure icons inherit color from the button */
+    font-size: 16px;
+}
+
+
+/* ACTIVE tab button */
+.tab-btn.active {
+    color: rgba(0, 164, 128, 1) !important; /* Added !important to ensure override */
+}
+
+.tab-btn.active i {
+    color: rgba(0, 164, 128, 1) !important; /* Ensure icon also gets the active color */
+}
+
+/* General tab pane styles */
+.tab-pane {
+    display: none;
+    padding: 20px; /* Add default padding to tab panes */
+}
+
+.tab-pane.active {
+    display: block;
+}
+
+/* Input and Textarea styles */
+.custom-input {
+    height: 44px;
+    border: 1px solid black;
+    width: 100%; /* Ensure input takes full width of its column */
+}
+
+.custom-input::placeholder {
+    color: rgb(0, 0, 0);
+}
+
+.custom-input:focus {
+    border-color: black;
+    box-shadow: 0 0 0 .25rem rgba(0, 0, 0, .25);
+    outline: 0;
+}
+
+.text-area-responsive { /* New class for the textarea */
+    /* height: 207px; */ /* Removed fixed height, let content dictate or use min-height */
+    width: 100%; /* Make it responsive */
+    /* width: 772px; */ /* Removed fixed width */
+    background-color: rgba(233, 235, 235, 1);
+    border: 1px solid black; /* Added border as in custom-input */
+    box-sizing: border-box; /* Include padding/border in width */
+    padding: 10px; /* Add some padding */
+}
+
+/* Responsive adjustments for specific elements */
+.p-tag {
+    font-weight: 400;
+    font-family: "Poppins";
+    color: rgba(0, 0, 0, 1);
+    font-size: 16px;
+    line-height: normal; /* Resetting potentially problematic line-height */
+}
+
+#tab-paste .lead {
+    font-size: 16px !important; /* Ensure lead paragraph font size is consistent */
+    text-align: center; /* Default to center for small screens */
+    padding-left: 1rem; /* Adjust padding for small screens */
+    padding-right: 1rem; /* Adjust padding for small screens */
+}
+
+@media (min-width: 768px) { /* Medium devices and up */
+    #tab-paste .lead {
+        font-size: 19px !important; /* Revert to larger size on medium screens */
+        text-align: start; /* Align to start on medium and larger screens */
+        padding-left: 3rem; /* Adjust padding for medium screens */
+        padding-right: 3rem; /* Adjust padding for medium screens */
+    }
+}
+
+/* General button styles for .verify */
+.verify {
+    background: linear-gradient(to right, rgba(0, 69, 111, 1), rgba(0, 164, 128, 1));
+    font-weight: 400;
+    font-size: 16px;
+    height: 44px;
+    color: white; /* Ensure text color is white */
+}
+
+/* Utility classes (from your original CSS, kept for completeness) */
+.admin-name {
+    font-weight: 700;
+    font-family: "Poppins";
+    font-size: 16px; /* Changed 'size' to 'font-size' */
+}
+
+.metismenu {
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    /* gap: 10px; */ /* Removed, likely not needed for this component */
+}
+
+.nav-text {
+    font-weight: 700;
+    font-family: "Poppins";
+    color: rgba(0, 0, 0, 1);
+    font-size: 16px;
+}
+
+.small {
+    font-weight: 700; /* Consolidated .small definition */
+    font-family: "Poppins";
+    color: rgba(0, 0, 0, 1);
+    font-size: 13px;
+}
+
+.header-right {
+    color: black;
+}
+
+.nav-title {
+    font-weight: 700;
+    font-family: "Poppins";
+    color: rgba(0, 0, 0, 1);
+    font-size: 24px;
+}
+
+.fw-bold {
+    font-weight: 700;
+    font-family: "Poppins";
+    color: rgba(0, 0, 0, 1);
+}
+
+.background {
+    background-color: white;
+}
+
+.custom-input {
+    height: 44px;
+}
+
+.custom-input {
+    border: 1px solid black;
+
+}
+
+
+.custom-input::placeholder {
+    color: rgb(0, 0, 0);
+
+}
+
+
+.custom-input:focus {
+    border-color: black;
+    box-shadow: 0 0 0 .25rem rgba(0, 0, 0, .25);
+    outline: 0;
+}
+
+.text-area {
+    height: 207px;
+    width: 772px;
+}.left-card{
+   background: linear-gradient(to right, rgba(0, 69, 111, 1), rgba(0, 164, 128, 1));  
+}
+
+/* Base Card Styles */
+.custom-card,
+.normal-card {
+    height: 100%; /* Make them fill the height of their parent column */
+    padding: 20px;
+    background: #fff; /* Default background, overridden by specific card types */
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    display: flex; /* For internal content alignment */
+    flex-direction: column; /* Stack content vertically */
+    justify-content: space-between; /* Push content to top/bottom or distribute */
+}
+
+/* Specific Custom Card Styles */
+.top-left-card {
+    background: linear-gradient(to right, rgba(0, 132, 213, 1), rgba(0, 69, 111, 1));
+}
+
+.top-right-card {
+    background: linear-gradient(to right, rgba(0, 164, 128, 1), rgba(0, 62, 48, 1));
+}
+
+/* Normal Card Specifics */
+.normal-card {
+    background: #f9f9f9;
+    border: 1px solid #e0e0e0;
+}
+
+/* Card Image Adjustment */
+.card-img-top-custom {
+    max-height: 100px; /* Adjust as needed */
+    width: auto; /* Maintain aspect ratio */
+    margin: 0 auto 15px; /* Center image and add some bottom margin */
+    display: block; /* Ensure it respects margin auto for centering */
+}
+
+/* Card Typography for Top Cards */
+.top-left-card h1 {
+    font-weight: 700;
+    font-family: "Poppins";
+    font-size: 32px;
+    line-height: 100%;
+}
+.top-left-card h5 { /* Grouped h5 for consistency */
+    font-weight: 700;
+    font-family: "Poppins";
+    font-size: 16px;
+    line-height: 100%;
+}
+.top-left-card h2 { /* Targeting the specific H2 for +1 MILLION */
+    font-weight: 700;
+    font-family: "Poppins";
+    font-size: 16px;
+}
+.top-left-card h2 span { /* Span inside H2 */
+    font-weight: 400;
+    font-family: "Poppins";
+    font-size: 20px; /* Keeping the 20px from inline style */
+}
+
+/* Timer Display */
+.timer-display {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem; /* Adjust base font size */
+    font-weight: 600;
+    color: white;
+    margin-top: auto; /* Push to the bottom of the flex container */
+    text-align: center;
+    white-space: nowrap; /* Prevent timer from wrapping */
+}
+
+.timer-display .timer-val {
+    display: inline-block;
+    min-width: 28px; /* Slightly adjusted min-width for consistent spacing */
+    text-align: center; /* Center numbers within their space */
+    transition: transform 0.1s ease-out; /* Animation for digit change */
+}
+
+.timer-display .timer-unit {
+    font-size: 0.6em; /* Smaller unit text */
+    vertical-align: super;
+    margin-right: 3px; /* Reduced margin for tighter look */
+    opacity: 0.8;
+    font-weight: 500;
+    color: inherit; /* Inherit color from parent (.timer-display) for consistency */
+}
+
+.timer-display .small-ms {
+    font-size: 0.7em; /* Smaller for milliseconds */
+    vertical-align: baseline;
+    opacity: 0.7;
+    color: inherit; /* Inherit color */
+}
+
+/* Optional: Animation for number change (subtle bounce/scale) */
+@keyframes number-pop {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.timer-display .timer-val.changed {
+    animation: number-pop 0.2s ease-out;
+}
+
+/* Bottom Cards Typography */
+.bottom-cards h1 {
+    font-weight: 700;
+    font-family: "Poppins";
+    font-size: 40px;
+    line-height: 100%;
+}
+
+.bottom-cards span {
+    font-weight: 400;
+    font-family: "Poppins";
+    font-size: 16px;
+    line-height: 100%;
+} .card-border {
+            border: 1px solid #b3e6c3; /* Lighter green general border */
+             border-radius: 0 !important; 
+        }
+
+        /* Vibrant green top border for cards */
+        .card-top-highlight {
+            border-top: 3px solid rgba(0, 164, 128, 1);
+        }   
+     
+        .btn-result {
+            background-color: #1e40af;
+            color: white;
+            font-weight: 600;
+            font-size: 0.75rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.375rem;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            border: none;
+        }
+        .btn-result:hover, .btn-result:focus {
+            background-color: #1e3a8a;
+            color: white;
+            text-decoration: none;
+        }
+        .label-analysis {
+            background-color: #e5e7eb;
+            color: #9ca3af;
+            font-weight: 600;
+            font-size: 0.75rem;
+            padding: 0.125rem 0.5rem;
+            border-radius: 0.375rem;
+            user-select: none;
+        }
+        .color-dot {
+            width: 0.75rem;
+            height: 0.75rem;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 0.5rem;
+        }
+        .color-deliverable { background-color: #8bc34a; }
+        .color-undeliverable { background-color: #f4511e; }
+        .color-catchall { background-color: #fbc02d; }
+        .color-unknown { background-color: #607d8b; }
+        .text-gray-400 { color: #9ca3af !important; }
+        .text-gray-600 { color: #4b5563 !important; }
+        .link-understanding {
+            font-size: 0.75rem;
+            color: #9ca3af;
+            text-decoration: underline;
+            cursor: pointer;
+            user-select: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        .link-understanding i {
+            font-size: 0.75rem;
+        }
+        .badge-verified {
+            background-color: #4caf50;
+            color: white;
+            font-weight: 600;
+            font-size: 0.75rem;
+            padding: 0.125rem 0.5rem;
+            border-radius: 0.375rem;
+            user-select: none;
+        }
+        .progress-bar-green {
+            background-color: #4caf50;
+        }
+        .donut-center-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 0.875rem;
+            color: #4b5563;
+            font-weight: 400;
+            text-align: center;
+            pointer-events: none;
+            user-select: none;
+        }
+        .donut-center-text strong {
+            display: block;
+            font-weight: 600;
+            font-size: 1.125rem;
+            color: #111827;
+            line-height: 1;
+        }
+        .chart-wrapper {
+            position: relative;
+            width: 96px;
+            height: 96px;
+        }
+        .card {
+            background-color: #fff;
+            border: 1px solid #e0e0e0;
+           
+           
+        }.card-item{
+            margin-bottom: 25px;
+        }
+        .card-item.hidden {
+            display: none !important;
+            
+        }
+        .row.g-3 .col-md-6 .card {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .row.g-3 .col-md-6 .card > .d-flex.gap-4 {
+            flex-grow: 1;
+        }
+
+        /* New styles for pagination controls */
+        .pagination-controls {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end; /* Align to the right */
+            gap: 1rem; /* Space between elements */
+            margin-top: 1rem; /* Space from cards */
+            font-size: 0.875rem;
+        }
+        .pagination-controls select {
+            padding: 0.375rem 0.75rem;
+            border-radius: 0.25rem;
+            border: 1px solid #ced4da;
+        }
+        .pagination-info {
+            font-weight: 500;
+            color: #4b5563;
+        }.custom-align-right {
+        text-align: right;
+    }.email-stat-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.email-stat-row .label {
+  flex-grow: 1;
+}
+
+.email-stat-row .value,
+.email-stat-row .percent {
+  width: 60px; /* Adjust as needed */
+  text-align: right;
+}
+

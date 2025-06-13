@@ -6,6 +6,9 @@
     <title>Register Page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.css">
+
+    
     <style>
         body {
             height: 100vh;
@@ -70,7 +73,10 @@
         }.log-in{
             color: rgba(30, 74, 233, 1);
              text-decoration: none;
-        }
+        } .iti {
+        width: 100%;
+    }
+
         @media (max-width: 768px) {
             body {
                 flex-direction: column;
@@ -121,6 +127,17 @@
             <small class="text-danger">{{ $message }}</small>
         @enderror
     </div>
+<div class="mb-3">
+    <label for="phone" class="form-label">Phone Number</label>
+    <input type="tel" id="phone" name="phone" class="form-control" required>
+    <input type="hidden" id="full_phone" name="full_phone">
+    @error('phone')
+        <small class="text-danger">{{ $message }}</small>
+    @enderror
+</div>
+
+
+
 
     <div class="mb-3">
         <label for="password" class="form-label">Password:</label>
@@ -172,5 +189,37 @@
   
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js"></script>
+
+<script>
+    const input = document.querySelector("#phone");
+    const fullPhoneInput = document.querySelector("#full_phone");
+
+    const iti = intlTelInput(input, {
+        initialCountry: "auto",
+        separateDialCode: false,
+        nationalMode: false,
+        formatOnDisplay: true,
+        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js",
+        geoIpLookup: function (callback) {
+            fetch("https://ipapi.co/json")
+                .then((res) => res.json())
+                .then((data) => callback(data.country_code))
+                .catch(() => callback("US"));
+        }
+    });
+
+    document.querySelector("form").addEventListener("submit", function () {
+        const number = iti.getNumber(); // E.164 format
+        fullPhoneInput.value = number; // Pass to hidden field
+    });
+</script>
+
+
+
+
+
 </body>
 </html>

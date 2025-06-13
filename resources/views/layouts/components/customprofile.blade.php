@@ -70,7 +70,7 @@
                                 <div class="row mb-3">
                                     <div class="col-md-6">
                                         <label class="form-label" for="phone">Phone</label>
-                                        <input class="form-control" id="phone" name="phone" type="number"
+                                        <input class="form-control" id="phone" name="phone" type="text"
                                             value="{{ old('phone', $user->phone) }}" required autocomplete="phone">
                                         @error('phone')
                                             <div class="text-danger mt-1">{{ $message }}</div>

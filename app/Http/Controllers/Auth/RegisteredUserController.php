@@ -32,7 +32,12 @@ class RegisteredUserController extends Controller
         $request->validate([
               'first_name' => 'required|string|max:255',
               'last_name' => 'nullable|string|max:255',
-              'phone' => 'nullable|string|max:20',
+            'phone' => ['required', 'regex:/^\+\d{10,15}$/'
+],
+], [
+    'phone.regex' => 'Please enter a valid phone number with country code (e.g. +1 555 123 4567 or +44 20 7946 0958).',
+
+
               'address' => 'nullable|string|max:255',
               'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
               'password' => ['required', 'confirmed', Rules\Password::defaults()],

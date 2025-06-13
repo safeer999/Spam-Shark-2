@@ -13,8 +13,6 @@ use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TasksController;
 use App\Http\Controllers\PasteEmailController;
 use App\Http\Controllers\CardController;
-
-
 use App\Http\Controllers\AdminDashboardController;
 use Illuminate\Support\Facades\Route;
 
@@ -35,7 +33,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 // middleware for  role= admin
-Route::middleware(['auth', 'role:admin'])->group(function () {
+Route::middleware(['auth', 'role:user'])->group(function () {
       Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
      //admin custom profile edit 
  Route::get('/admin/custom/profile', [AdminDashboardController::class, 'customedit'])->name('profile.customedit');
@@ -82,7 +80,11 @@ require __DIR__.'/auth.php';
 
 
  // Public user page (frontend) for everyone
-Route::get('/', [UserController::class, 'index'])->name('frontend.home');
+//Route::get('/', [UserController::class, 'index'])->name('frontend.home');
+// route redirection 
+Route::get('/', function () {
+    return redirect()->route('login');
+});
 
 
 //single email verify routes

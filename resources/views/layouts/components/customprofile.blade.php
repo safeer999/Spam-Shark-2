@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.css">
 
 <div class="d-flex justify-content-between align-items-center px-5  mb-3 mt-xl-5">
   <h2 class="mb-0">Edit Profile</h2>
@@ -70,12 +71,15 @@
                                 <div class="row mb-3">
                                     <div class="col-md-6">
                                         <label class="form-label" for="phone">Phone</label>
-                                        <input class="form-control" id="phone" name="phone" type="text"
+                                        <input type="tel" id="phone" name="phone" class="form-control" required
                                             value="{{ old('phone', $user->phone) }}" required autocomplete="phone">
+                                            <input type="hidden" id="full_phone" name="full_phone">
                                         @error('phone')
                                             <div class="text-danger mt-1">{{ $message }}</div>
                                         @enderror
                                     </div>
+
+
 
                                      <div class="col-md-6 ">
                                             <label class="form-label" for="email">Email</label>
@@ -137,5 +141,31 @@
         </div>
     </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js"></script>
+
+<script>
+    const input = document.querySelector("#phone");
+    const fullPhoneInput = document.querySelector("#full_phone");
+
+    const iti = intlTelInput(input, {
+        initialCountry: "auto",
+        separateDialCode: false,
+        nationalMode: false,
+        formatOnDisplay: true,
+        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js",
+        geoIpLookup: function (callback) {
+            fetch("https://ipapi.co/json")
+                .then((res) => res.json())
+                .then((data) => callback(data.country_code))
+                .catch(() => callback("US"));
+        }
+    });
+
+    document.querySelector("form").addEventListener("submit", function () {
+        const number = iti.getNumber(); // E.164 format
+        fullPhoneInput.value = number; // Pass to hidden field
+    });
+</script>
 
 @endsection

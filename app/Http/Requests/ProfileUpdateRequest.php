@@ -21,7 +21,11 @@ class ProfileUpdateRequest extends FormRequest
 
       
      // Validate the hidden full_phone input instead:
-         'phone' => ['required', 'numeric'],
+        'phone' => ['required', 'regex:/^\+\d{10,15}$/'
+],
+
+    'phone.regex' => 'Please enter a valid phone number with country code (e.g. +1 555 123 4567 or +44 20 7946 0958).',
+
 
         'address' => ['required', 'string', 'max:255'],
          'password' => [

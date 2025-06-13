@@ -569,5 +569,8 @@
 .email-stat-row .percent {
   width: 60px; /* Adjust as needed */
   text-align: right;
-}
+}.iti {
+        width: 100%;
+    }
+
 
